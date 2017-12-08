@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单属性</title>
+    <style>
+        select {
+            width: 100px;
+            height: 30px;
+            margin-left: 500px;
+            margin-top: 300px;
+        }
+        
+        input {
+            height: 30px;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <select>
+        <option>露娜</option>
+        <option>甄姬</option>
+        <option>女娲</option>
+        <option>芈月</option>
+        <option selected>阿珂</option>
+        <option>貂蝉</option>
+        <option>妲己</option>
+        <option>大乔</option>
+        <option>小乔</option>
+    </select>
+    <input id="btn" type="button" value="切换">
+
+    <script>
+        var btn = document.getElementById('btn');
+        var options = document.getElementsByTagName('option');
+
+        btn.onclick = function() {
+            // 获得随机数   0-8
+            var random = parseInt(Math.random() * options.length);
+            options[random].selected = true;
+        }
+    </script>
+</body>
+
+</html>

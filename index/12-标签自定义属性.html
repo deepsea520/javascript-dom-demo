@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标签自定义属性</title>
+</head>
+<style>
+    input {
+        margin-top: 150px;
+    }
+    
+    input:first-child {
+        margin-left: 800px;
+    }
+</style>
+
+<body>
+    <input type="button" value="索引0">
+    <input type="button" value="索引1">
+    <input type="button" value="索引2">
+    <input type="button" value="索引3">
+    <input type="button" value="索引4">
+    <input type="button" value="索引5">
+
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            // 将自定义属性 存到当前对象里
+            // 也可以通过setAttribute('index');但是这样会在标签里显示自定义属性
+            inputs[i].index = i;
+            inputs[i].onclick = function() {
+                // 获取当前对象的自定义属性index
+                console.log("当前索引" + this.index);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>通过Id获取元素</title>
+</head>
+
+<body>
+    <img id="image" src="../image/01.jpg" alt="图片加载失败了" title="提示信息"></img>
+
+    <script>
+        var img = document.getElementById("image");
+        img.title = "你看到了什么";
+        img.alt = "图片未能显示"; // 两条提示信息也被替换了
+        img.src = "../image/02.jpg"; // 页面中的图片会被替换成2.jpg
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>美女相册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #box {
+            margin: 20px 100px;
+        }
+        
+        ul {
+            overflow: hidden;
+            margin: 50px 0;
+        }
+        
+        li {
+            float: left;
+            margin-right: 20px;
+        }
+        
+        li img {
+            width: 150px;
+        }
+        
+        #placeholder {
+            width: 400px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h2>美女相册案例</h2>
+
+        <ul>
+            <li>
+                <a href="../image/美女相册/1.jpg" title="美女1"><img src="../image/美女相册/1-small.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="../image/美女相册/2.jpg" title="美女2"><img src="../image/美女相册/2-small.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="../image/美女相册/3.jpg" title="美女3"><img src="../image/美女相册/3-small.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="../image/美女相册/4.jpg" title="美女4"><img src="../image/美女相册/4-small.jpg" alt=""></a>
+            </li>
+        </ul>
+
+
+        <img id="placeholder" src="../image/美女相册/placeholder.png" alt="">
+
+        <p id="description">这是描述</p>
+    </div>
+    <script>
+        var links = document.getElementsByTagName('a');
+        var placeholder = document.getElementById('placeholder');
+        var description = document.getElementById('description');
+
+        // 给所有a标签注册点击事件
+        for (var i = 0; i < links.length; i++) {
+            links[i].onclick = function() {
+                // 将占位的图片的src设置成当前点击a标签的路径
+                placeholder.src = this.href;
+                // 修改描述文字，设置成当前点击a标签的title
+                description.innerHTML = this.title;
+                // 阻止a标签跳转
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

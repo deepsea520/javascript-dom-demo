@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击轮流切换图片</title>
+    <style>
+        img {
+            width: 600px;
+            display: block;
+            margin: 100px auto;
+        }
+        
+        input {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../image/01.jpg" alt="" id="img">
+    <input type="button" value="切换" id="btn">
+
+    <script>
+        var img = document.getElementById('img');
+        var btn = document.getElementById('btn');
+        var index = 1;
+        btn.onclick = function() {
+            index++;
+            if (index == 5) {
+                index = 1;
+            }
+            img.src = "../image/0" + index + ".jpg"; // 利用字符串拼接的方法，将路径拼接起来
+        }
+
+
+        var img = document.getElementById('img');
+        var btn = document.getElementById('btn');
+        // 将所有的路径存储到一个数组中，然后只需要遍历这个数组的下标，就能实现切换图片
+        var arr = ["../image/01.jpg", "../image/02.jpg", "../image/03.jpg", "../image/04.jpg", "../image/05.jpg"];
+        var index = 0;
+
+        btn.onclick = function() {
+            index++;
+            if (index == 4) {
+                index = 1;
+            }
+            img.src = arr[index];
+        }
+    </script>
+</body>
+
+</html>

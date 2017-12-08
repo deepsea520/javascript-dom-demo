@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个按钮点击循环显示隐藏一个盒子</title>
+    <style>
+        .bigbox {
+            width: 250px;
+            height: 250px;
+            margin: 100px auto;
+            margin-bottom: 10px;
+        }
+        
+        #box {
+            width: 250px;
+            height: 250px;
+            background: salmon;
+        }
+        
+        input {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 外面包裹一个大盒子避免页面重排 -->
+    <div class="bigbox">
+        <div id="box"></div>
+    </div>
+
+    <input type="button" value="隐藏" id="btn">
+
+    <script>
+        var img = document.getElementById('img');
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function() {
+            if (btn.value == "隐藏") {
+                box.className = "hide";
+                btn.value = "显示";
+            } else {
+                box.className = "show";
+                btn.value = "隐藏";
+            }
+        }
+    </script>
+</body>
+
+</html>

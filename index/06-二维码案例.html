@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二维码案例</title>
+    <style>
+        .small {
+            width: 50px;
+            height: 50px;
+            background: url(../image/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 45%;
+            cursor: pointer;
+        }
+        
+        .big {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="small" class="small">
+        <div id="big" class="big hide">
+            <img src="../image/456.png" alt="" />
+        </div>
+    </div>
+
+    <script>
+        var small = document.getElementById('small');
+        var big = document.getElementById('big');
+        small.onmouseover = function() {
+            big.className = "big show"; // 注意这里一定不能只写一个类，它本身的big类也要写上去，否则页面中只有一个show类
+        }
+        small.onmouseout = function() {
+            big.className = "big hide";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格全选反选</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 400px;
+            margin: 100px auto 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 400px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+        
+        td {
+            font: 14px "微软雅黑";
+        }
+        
+        tbody tr {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input id="check_all" type="checkbox" title="全选">
+                        <input id="check_fx" type="checkbox" title="反选">
+                    </th>
+                    <th>英雄</th>
+                    <th>技能</th>
+                </tr>
+            </thead>
+            <tbody id="check_dan">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>芈月</td>
+                    <td>永生之血</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>貂蝉</td>
+                    <td>语·花印</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>大乔</td>
+                    <td>川流不息</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>甄姬</td>
+                    <td>凝泪成冰</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var checkAll = document.getElementById('check_all');
+        var checkDan = document.getElementById('check_dan');
+        var inputs = checkDan.getElementsByTagName('input');
+
+        // 全选按钮点击后下面所有的选项状态根据全选按钮的状态来改变
+        checkAll.onclick = function() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = checkAll.checked;
+            }
+        }
+
+        // 下面的按钮控制上面的全选按钮
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = function() {
+                // 通过假设成立法 控制全选按钮
+                var flag = true; // 假设下面所有的按钮选中了
+                for (var i = 0; i < inputs.length; i++) {
+                    // 想办法推翻假设
+                    if (!inputs[i].checked) { // 假设下面的按钮有一个没有被选中时
+                        flag = false;
+                        break;
+                    }
+                }
+                // 假设成立后 应该做什么
+                // if (flag) {
+                //     checkAll.checked = true;
+                // }
+                checkAll.checked = flag;
+            }
+        }
+
+        var checkFx = document.getElementById('check_fx');
+        checkFx.onclick = function() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = !inputs[i].checked;
+            }
+        }
+    </script>
+</body>
+
+</html>

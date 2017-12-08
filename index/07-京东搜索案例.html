@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>失去、获得焦点</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    input {
+        border: 1px solid #f10215;
+        outline: none;
+        width: 340px;
+        height: 28px;
+        margin-top: 300px;
+        position: fixed;
+        left: 50%;
+        margin-left: -175px;
+        padding-left: 10px;
+    }
+    
+    button {
+        border: none;
+        background: none;
+        outline: none;
+        width: 50px;
+        height: 30px;
+        background-color: #f10215;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 300px;
+        position: absolute;
+        left: 57%;
+    }
+</style>
+
+<body>
+    <input id="text" type="text" value="iphoneX">
+    <button id="btn">搜索</button>
+
+    <script>
+        var text = document.getElementById('text');
+        text.onfocus = function() {
+            text.value = "";
+        }
+        text.onblur = function() {
+            text.value = "iphoneX";
+        }
+    </script>
+</body>
+
+</html>
