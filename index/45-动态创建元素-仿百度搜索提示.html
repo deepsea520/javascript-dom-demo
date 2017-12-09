@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度搜索提示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+        
+        #box {
+            width: 405px;
+            margin: 200px auto;
+            position: relative;
+        }
+        
+        input {
+            float: left;
+            width: 300px;
+            height: 32px;
+            padding-left: 4px;
+            border: 1px solid #b6b6b6;
+            border-right: 0;
+        }
+        
+        button {
+            float: left;
+            width: 100px;
+            height: 34px;
+            font: 400 14px/34px "microsoft yahei";
+            color: white;
+            background: #3385ff;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #317ef3;
+        }
+        
+        #pop {
+            width: 303px;
+            border: 1px solid #ccc;
+            padding: 0px;
+            position: absolute;
+            top: 34px;
+        }
+        
+        #pop ul li {
+            padding-left: 5px;
+        }
+        
+        #pop ul li:hover {
+            background-color: #CCC;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <input id="text" type="text">
+        <button id="search">百度一下</button>
+    </div>
+
+    <script>
+        var text = document.getElementById('text');
+        var box = document.getElementById('box');
+
+        // 假设后台的提示数据是datas
+        var datas = ["a", "ab", "abc", "abcd", "爱奇艺", "爱康国宾体检中心", "爱奇艺会员领取", "爱思助手官方下载", "如何开网店", "如何瘦肚子", "如何翻墙"];
+        // 给text注册键盘弹起事件
+        text.onkeyup = function() {
+            //1. 根据用户输入的值  获取到一个数组  这个数组就是需要展示的内容
+            var newArr = [];
+            // 获取到输入凡人内容
+            var content = text.value;
+
+            for (var i = 0; i < datas.length; i++) {
+                // 判断输入的内容在数据中是否存在
+                if (datas[i].indexOf(content) != -1) {
+                    // 说明存在
+                    newArr.push(datas[i]);
+                }
+            }
+            // 要将提示信息显示在搜索框下方 需要创建一个div
+            // 每一次触发事件都会创建一个div，如果发现box中存在id pop，就删除它
+            var pop = document.getElementById('pop');
+            if (pop) {
+                box.removeChild(pop);
+            }
+
+            // 生成 div的前提是newArr要有长度
+            if (newArr.length == 0 || content == "") {
+                return;
+            }
+
+            var div = document.createElement("div");
+            div.id = "pop";
+            box.appendChild(div);
+
+            // 创建ul 添加到div中，用来显示提示信息列表
+            var ul = document.createElement("ul");
+            div.appendChild(ul);
+
+            // 根据 newArr 创建li 并且添加到ul中
+            for (var i = 0; i < newArr.length; i++) {
+                var li = document.createElement("li");
+                ul.appendChild(li);
+                li.innerHTML = newArr[i];
+            }
+        }
+    </script>
+</body>
+
+</html>

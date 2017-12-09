@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加节点</title>
+</head>
+
+<body>
+    <ul id="wrap">
+        <li>大乔</li>
+        <li id="xq">小乔</li>
+        <li>阿珂</li>
+        <li>甄姬</li>
+    </ul>
+
+    <li id="nw">女娲</li>
+    <li id="ln">露娜</li>
+    <li id="dj">妲己</li>
+
+    <script>
+        var wrap = document.getElementById('wrap');
+        var xq = document.getElementById('xq');
+        var nw = document.getElementById('nw');
+        var ln = document.getElementById('ln');
+        var dj = document.getElementById('dj');
+
+        // insertBefore 可以在任意指定位置添加
+        // 将女娲添加到小乔前面
+        wrap.insertBefore(nw, xq);
+
+        // insertBefore 添加到最前面 wrap.children[0]
+        // 将露娜添加到最前面
+        wrap.insertBefore(ln, wrap.children[0]);
+
+        // insertBefore 第二个参数null时，默认在最后面添加
+        // 将妲己添加到最后面
+        wrap.insertBefore(dj, null);
+    </script>
+</body>
+
+</html>

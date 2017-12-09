@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开关灯案例</title>
+</head>
+
+<body>
+    <!-- 开关灯案例 单个按钮 -->
+    <button id="btn">关灯</button>
+
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            if (btn.innerText == "关灯") {
+                //把body的背景颜色改成黑色
+                //可以直接通过  document.body
+                document.body.style.backgroundColor = "#000";
+                btn.innerText = "开灯";
+                btn.style.color = "red";
+            } else {
+                document.body.style.backgroundColor = "#fff";
+                btn.innerText = "关灯";
+                btn.style.color = "#000";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选好友</title>
+    <style>
+        select {
+            height: 300px;
+            width: 80px;
+            overflow: hidden;
+            text-align: center;
+            font-size: 18px;
+            background-color: #F1E9E3;
+        }
+    </style>
+</head>
+
+<body>
+    <select id="left" multiple>
+        <option>大乔0</option>
+        <option>小乔1</option>
+        <option>甄姬2</option>
+        <option>虞姬3</option>
+        <option>妲己4</option>
+        <option>女娲5</option>
+        <option>芈月6</option>
+        <option>露娜7</option>
+    </select>
+
+    <button id="all-right">&gt;&gt;</button>
+    <button id="all-left">&lt;&lt;</button>
+    <button id="only-right">&gt;</button>
+    <button id="only-left">&lt;</button>
+
+    <select id="right" multiple></select>
+
+
+    <script>
+        var left = document.getElementById('left');
+        var right = document.getElementById('right');
+        var allRight = document.getElementById('all-right');
+        var allLeft = document.getElementById('all-left');
+        var onlyRight = document.getElementById('only-right');
+        var onlyLeft = document.getElementById('only-left');
+
+        // 全选往右按钮
+        allRight.onclick = function() {
+            // 获取左边所有的option
+            var options = left.children;
+            // appendChild 只能一个个添加，不能一次添加一个数组
+            for (var i = 0; i < options.length; i++) {
+                right.appendChild(options[i]);
+                // 为什么要--？，因为js执行是一步步往下执行的
+                /* 
+                    i = 0 时 "大乔0"会被添加到右边去，此时options数组中就没有了下标为0项
+                    i = 1 原本的"小乔1"此时在数组中下标就为0了，但for循环下一次添加的时候，是添加下标为1的项，就是"甄姬2"
+                    所以你会看到，点击全选按钮，只有四项过去，原因就在上面
+                    i-- 的目的就是 添加时，下标会往后一次
+                 */
+                i--;
+            }
+        };
+
+        // 全选往左按钮
+        allLeft.onclick = function() {
+            var options = right.children;
+            for (var i = 0; i < options.length; i++) {
+                left.appendChild(options[i]);
+                i--;
+            }
+
+        };
+
+        // 选中的往右边
+        onlyRight.onclick = function() {
+            // 获取到左边所有的选项
+            var options = left.children;
+            for (var i = 0; i < options.length; i++) {
+                // 判断左边的选中项(表单属性)
+                if (options[i].selected) {
+                    // 如果是选中的 将它添加到右边
+                    right.appendChild(options[i]);
+                    i--;
+                }
+            }
+        };
+
+        // 选中的往左边
+        onlyLeft.onclick = function() {
+            var options = right.children;
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].selected) {
+                    left.appendChild(options[i]);
+                    i--;
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

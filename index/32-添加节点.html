@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加节点</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <span>我是子元素</span>
+    </div>
+    <p id="des">这里是p标签</p>
+    <i id="title">这里是i标签</p>
+
+    <!-- js部分 -->
+    <script>
+        /* appendChild */
+        var p = document.getElementById('des');
+        var i = document.getElementById('title');
+        var box = document.getElementById('box');
+        // 克隆上面的两个节点
+        var newP = p.cloneNode(true);
+        newP.id = "des2"; // 修改了id，防止id冲突
+        // 将newP添加到box中
+        box.appendChild(newP);
+        box.appendChild(i);
+    </script> 
+</body>
+
+</html>

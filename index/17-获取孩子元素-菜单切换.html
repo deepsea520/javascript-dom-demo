@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>菜单切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #box {
+            width: 500px;
+            margin: 100px auto;
+        }
+        
+        ul {
+            overflow: hidden;
+        }
+        
+        li {
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            background-color: #FFE5B9;
+            cursor: pointer;
+        }
+        
+        a {
+            text-decoration: none;
+            font: 400 16px/40px "宋体";
+            color: #FF5C5C;
+        }
+        
+        .show {
+            color: #333;
+            background-color: #FFC77F;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="box">
+            <li class="show"><a href="javascript:void(0)">导航1</a></li>
+            <li><a href="javascript:void(0)">导航2</a></li>
+            <li><a href="javascript:void(0)">导航3</a></li>
+            <li><a href="javascript:void(0)">导航4</a></li>
+            <li><a href="javascript:void(0)">导航5</a></li>
+        </ul>
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        lis = box.children;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function() {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = "";
+                }
+                this.className = "show";
+            }
+        }
+    </script>
+</body>
+
+</html>

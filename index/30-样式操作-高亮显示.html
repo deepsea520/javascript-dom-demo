@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高亮显示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        body {
+            background-color: #000;
+        }
+        
+        .wrap {
+            margin: 100px auto 0;
+            width: 606px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+        
+        .wrap li {
+            float: left;
+            border: 1px solid #000;
+        }
+        
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="wrap">
+        <ul>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/01.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/02.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/03.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/04.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/05.jpg" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="../image/高亮显示效果/06.jpg" alt="" /></a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var wrap = document.getElementById('wrap');
+        var lis = wrap.children[0].children;
+
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                // 排他，全部不透明度为0.4
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].style.opacity = "0.4";
+                    lis[i].style.filter = "alpha(opacity = 40)";
+                }
+                // 当前鼠标悬停位置 不透明度为1
+                this.style.opacity = "1";
+                this.style.filter = "alpha(opacity = 100)";
+            }
+
+        }
+        // 鼠标离开大盒子的时候 不透明度全部为1
+        wrap.onmouseout = function() {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.opacity = "1";
+                lis[i].style.filter = "alpha(opacity = 100)";
+            }
+        }
+    </script>
+</body>
+
+</html>

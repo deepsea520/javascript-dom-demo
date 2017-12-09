@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点属性</title>
+</head>
+
+<body>
+    <div id="box">
+        <p>1</p>
+        <!--这是个注释-->
+        <p>2</p>
+        <p>3</p>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+    <script>
+        // 节点类型  标签节点：1  文本节点：3   注释节点：8  属性节点：2
+        var box = document.getElementById("box");
+        var nodes = box.childNodes; // 获取box下的所有的孩子节点
+        var arr = [];
+        console.log(nodes); // NodeList(15)  
+        // [text, p, text, comment, text, p, text, p, text, div, text, div, text, div, text]
+        for (var i = 0; i < nodes.length; i++) {
+            // 如果节点类型为 1 的时候
+            if (nodes[i].nodeType == 1) {
+                arr.push(nodes[i]);
+            }
+        }
+
+        console.log(arr); // [p p p div div div]
+
+        console.log(box.children.length); // 6
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机选中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            margin: 50px auto;
+        }
+        
+        td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            border: 1px dashed #4586FF;
+            position: relative;
+        }
+        
+        img {
+            width: 80px;
+            height: 80px;
+            display: block;
+        }
+        
+        #btn {
+            width: 100px;
+            height: 40px;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .mask {
+            width: 80px;
+            height: 80px;
+            background: rgba(161, 234, 251, 1);
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点击开始</button>
+    <script>
+        // 随机选中的名单 @为空，随机的时候 不会选择@的项
+        var heros = [
+            ["../image/wzry/105.jpg", "@", "../image/wzry/106.jpg", "@", "../image/wzry/107.jpg", "@", "../image/wzry/146.jpg", "@", "../image/wzry/109.jpg", "@", "../image/wzry/110.jpg"],
+            ["../image/wzry/149.jpg", "@", "../image/wzry/115.jpg", "@", "../image/wzry/114.jpg", "@", "../image/wzry/113.jpg", "@", "../image/wzry/119.jpg", "@", "../image/wzry/120.jpg"],
+            ["../image/wzry/148.jpg", "@", "../image/wzry/116.jpg", "@", "../image/wzry/117.jpg", "@", "../image/wzry/118.jpg", "@", "../image/wzry/137.jpg", "@", "../image/wzry/136.jpg"],
+            ["../image/wzry/140.jpg", "@", "../image/wzry/125.jpg", "@", "../image/wzry/124.jpg", "@", "../image/wzry/123.jpg", "@", "../image/wzry/122.jpg", "@", "../image/wzry/121.jpg"],
+            ["../image/wzry/141.jpg", "@", "../image/wzry/126.jpg", "@", "../image/wzry/127.jpg", "@", "../image/wzry/128.jpg", "@", "../image/wzry/129.jpg", "@", "../image/wzry/130.jpg"],
+            ["../image/wzry/142.jpg", "@", "../image/wzry/135.jpg", "@", "../image/wzry/134.jpg", "@", "../image/wzry/144.jpg", "@", "../image/wzry/132.jpg", "@", "../image/wzry/131.jpg"]
+        ];
+        var btn = document.getElementById('btn');
+        var newArr = [];
+        // 创建table 添加到body中
+        var table = document.createElement("table");
+        document.body.insertBefore(table, btn);
+
+        // 根据heros数组的长度创建tr
+        for (var i = 0; i < heros.length; i++) {
+            var tr = document.createElement("tr");
+            table.appendChild(tr);
+
+            // tr代表的是行数，上面的for循环，是循环的外面一个数组。下面需要创建td 
+            for (var j = 0; j < heros[i].length; j++) {
+                var td = document.createElement("td");
+                tr.appendChild(td);
+                // 当td里面的内容不等于"@"的时候 将数组里面的内容添加进去
+                if (heros[i][j] != "@") {
+                    td.innerHTML = "<img src=" + heros[i][j] + ">";
+                    // 将符合条件的td添加到一个新的数组中
+                    newArr.push(td);
+                    // 创建一个遮罩层
+                    var mask = document.createElement("div");
+                    td.appendChild(mask);
+                    mask.className = "mask";
+                }
+
+            }
+        }
+
+        // 给按钮注册点击事件
+        btn.onclick = function() {
+            for (var i = 0; i < newArr.length; i++) {
+                // 每次点击按钮的时候，都让遮罩层恢复
+                newArr[i].children[1].className = "mask";
+            }
+
+            // 根据新数组的长度，返回一个随机数
+            var random = parseInt(Math.random() * newArr.length);
+            // 将随机到的td下的遮罩层属性名清空
+            newArr[random].children[1].className = "";
+        }
+    </script>
+</body>
+
+</html>

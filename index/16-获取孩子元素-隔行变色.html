@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .odd {
+            background: #FFE5B9;
+        }
+        
+        .even {
+            background: #FFBDD4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p>1</p>
+        <!--这是个注释-->
+        <p>2</p>
+        <p>3</p>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        // 通过 box 下的孩子元素，找到所有标签
+        var childs = box.children;
+        console.log(box.childNodes);
+        for (var i = 0; i < childs.length; i++) {
+            if (i % 2 == 0) {
+                childs[i].className = "odd";
+            } else {
+                childs[i].className = "even";
+            }
+        }
+    </script>
+</body>
+
+</html>

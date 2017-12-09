@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>样式操作</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 行内样式权重最高 -->
+    <div id="box" style="background-color: #FFECDA; width:300px;" title="点击我 变长"></div>
+
+    <script>
+        var box = document.getElementById('box');
+
+        // 1. 标签有style属性， 对象也有style属性， 这个style属性是一个对象。
+        console.log(box.style);
+
+        box.onclick = function() {
+            //2. 可以通过style来设置样式, 如果获取的时候有单位，设置的时候也要有单位
+            box.style.width = "800px";
+
+            //3. background-color这种样式需要变成驼峰命名法
+            box.style.backgroundColor = "#A6D0E4";
+        }
+
+
+        //4. 获取的时候，只能获取行内样式  style通常只是用来设置样式的，很少用来获取样式。
+        console.log(box.style.width); // 800
+        console.log(box.style.height); // 空 行内里没有这个属性
+    </script>
+</body>
+
+</html>

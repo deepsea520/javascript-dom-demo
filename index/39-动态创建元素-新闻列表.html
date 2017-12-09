@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态创建新闻列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #btn {
+            display: block;
+            margin: 100px auto;
+            margin-bottom: 10px;
+            ;
+        }
+        
+        #box {
+            width: 500px;
+            height: 350px;
+            border: 1px dashed #BD4682;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">生成</button>
+    <div id="box"></div>
+
+    <script>
+        var arr = [
+            '"红船精神" 理上网来 新时代 新气象 新作为',
+            '互联网大会蓝皮书发布 中国数字经济规模全球第二',
+            '教育部回应"取消中考"传言:不实 条件不具备',
+            '中泰铁路12月下旬开工 昆明到曼谷将朝发夕至',
+            '中消协约谈摩拜等共享单车企业:尽可能免收押金',
+            '温度 | 成都81岁捡垃圾老太已被纳入关爱援助',
+            '车晓前夫拒履行判决被限制出境 曾是山西首富',
+            '首艘国产航母进入最后试验阶段 与辽宁舰有何不同',
+            '揭秘：身价多少 才能参加乌镇的“大佬”饭局？',
+            '西成高铁明日开通运营 首发车车票约半小时售罄',
+            '离婚女子见网友失联 警方千里奔波解救却被撒狗粮',
+            '西安回应38车相撞事故:接受批评 洒水将灵活调整',
+            '魔鬼在人间，专骗救命钱',
+            '儿子服毒割腕 父母第一句话问"他包里有没有钱"',
+            '看完复联3预告片,为什么都在骂漫威？',
+            '3年少卖80亿包，方便面的饭碗被谁抢了'
+        ];
+
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        // 点击"生成"，手动创建一个列表
+        btn.onclick = function() {
+            // 创建ul 添加到box中
+            var ul = document.createElement("ul");
+            box.appendChild(ul);
+
+            // 根据arr里的数据 创建li
+            for (var i = 0; i < arr.length; i++) {
+                // 创建li
+                var li = document.createElement("li");
+                ul.appendChild(li);
+
+                // 设置li的内容
+                li.innerHTML = arr[i];
+
+                // 隔行变色
+                if (i % 2 == 0) {
+                    li.style.background = "#F4E7D3";
+                } else {
+                    li.style.background = "#F9F8ED";
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

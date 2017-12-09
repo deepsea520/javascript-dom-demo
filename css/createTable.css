@@ -1,0 +1,29 @@
+/*
+ * @Author: Levi丶lxh 
+ * @Date: 2017-12-07 14:45:09 
+ */
+
+.my_table {
+    margin: 100px auto;
+    width: 800px;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+.my_table th {
+    border: 1px solid #000;
+    height: 30px;
+    background-color: #C4E3CB;
+}
+
+.my_table td {
+    border: 1px solid #000;
+    height: 30px;
+    text-align: center;
+    background: #F4F9F4;
+}
+
+.my_table a {
+    text-decoration: none;
+    color: #FF5C5C;
+}

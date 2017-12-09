@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>兄弟节点</title>
+</head>
+
+<body>
+    <div id="box">
+        <input id="textName" type="text"><span style="color:red; font-size:14px;"></span><br>
+        <input id="textPwd" type="text"><span style="color:red; font-size:14px;"></span><br <button>注册</button>
+    </div>
+
+    <script>
+        var textName = document.getElementById('textName');
+        var textPwd = document.getElementById('textPwd');
+
+        // 键盘弹起事件
+        //为什么是键盘弹起事件？ 如果是键盘按下事件，内容还没进去，下面代码就开始做判断了
+        textName.onkeyup = function() {
+            // 如果输入的值 小于2位或大于6位的时候
+            if (this.value.length < 2 || this.value.length > 6) {
+                // 当前的下一个兄弟元素
+                this.nextSibling.innerHTML = "用户名长度为2-6位";
+            } else {
+                this.nextSibling.innerHTML = "";
+            }
+        }
+        textPwd.onkeyup = function() {
+            if (this.value.length < 6 || this.value.length > 12) {
+                this.nextSibling.innerHTML = "密码长度为6-12位";
+            } else {
+                this.nextSibling.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

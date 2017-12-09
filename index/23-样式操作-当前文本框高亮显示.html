@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本框高亮</title>
+</head>
+
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            // 排他解决
+            /* inputs[i].onclick = function() {
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].style.backgroundColor = "";
+                }
+                this.style.backgroundColor = "cyan";
+            } */
+
+            // 两个新事件 onfocus onblur
+            inputs[i].onfocus = function() {
+                this.style.backgroundColor = "hotpink";
+            }
+
+            inputs[i].onblur = function() {
+                this.style.backgroundColor = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

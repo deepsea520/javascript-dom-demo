@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置层级</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .one {
+            background-color: #F54D42;
+        }
+        
+        .two {
+            background-color: #FF8356;
+            margin: 80px;
+        }
+        
+        .three {
+            background-color: #FFCD00;
+            margin: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+
+    <script>
+        var divs = document.getElementsByTagName('div');
+        var zIndex = 0;
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].onclick = function() {
+                this.style.zIndex = ++zIndex;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

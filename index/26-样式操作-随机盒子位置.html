@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机位置</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #FFCD00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" title="点我啊！"></div>
+
+    <script>
+        var box = document.getElementById('box');
+
+        box.onclick = function() {
+            box.style.position = 'absolute';
+            // left 100-600
+            var x = parseInt(Math.random() * 501) + 100;
+            // 有单位的一定要加上单位
+            box.style.left = x + "px";
+
+            // top 50-350
+            var y = parseInt(Math.random() * 301) + 50;
+            box.style.top = y + "px";
+        }
+    </script>
+</body>
+
+</html>

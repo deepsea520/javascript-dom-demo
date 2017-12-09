@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排他思想</title>
+    <style>
+        input {
+            margin-top: 300px;
+        }
+        
+        input:first-child {
+            margin-left: 500px;
+        }
+        
+        .now {
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="点我，我就亮">
+    <input type="button" value="点我，我就亮">
+    <input type="button" value="点我，我就亮">
+    <input type="button" value="点我，我就亮">
+    <input type="button" value="点我，我就亮">
+    <input type="button" value="点我，我就亮">
+
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            // 给所有的button注册点击事件
+            inputs[i].onclick = function() {
+
+                // 干掉所有人(让所有的button移除类)
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].className = "";
+                }
+                // 复活我自己(给点击的添加背景)
+                this.className = "now";
+            }
+        }
+    </script>
+</body>
+
+</html>

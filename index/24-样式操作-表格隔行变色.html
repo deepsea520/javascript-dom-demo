@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格隔行变色</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #box {
+            width: 500px;
+            margin: 100px auto 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 500px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #CC376D;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+        
+        td {
+            font: 14px "微软雅黑";
+            text-align: center;
+        }
+        
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>英雄</th>
+                    <th>技能</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td>1</td>
+                    <td>芈月</td>
+                    <td>永生之血</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>貂蝉</td>
+                    <td>语·花印</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>大乔</td>
+                    <td>川流不息</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>甄姬</td>
+                    <td>凝泪成冰</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var tb = document.getElementById('tb');
+        var trs = tb.children;
+        console.log(trs);
+
+        // 隔行变色
+        for (var i = 0; i < trs.length; i++) {
+            if (i % 2 == 0) {
+                trs[i].style.backgroundColor = "#FFC77F";
+            } else {
+                trs[i].style.backgroundColor = "#FFE5B9";
+
+            }
+            //注册鼠标经过事件，变颜色
+            //需要存下来原来的颜色， 需要用一个全局变量来存
+            var oldColor = null;
+            trs[i].onmouseover = function() {
+                oldColor = this.style.backgroundColor;
+                this.style.backgroundColor = "#D1F386";
+            };
+            //恢复原来的颜色
+            trs[i].onmouseout = function() {
+                this.style.backgroundColor = oldColor;
+            };
+        }
+    </script>
+</body>
+
+</html>

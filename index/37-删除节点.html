@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>删除节点</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #E0FF59;
+            text-align: center;
+        }
+        
+        #btn {
+            margin-top: 10px;
+            margin-left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p id="des">我是第一句话</p>
+        <p>我是第二句话</p>
+    </div>
+
+    <button id="btn">点击移除第一句话</button>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var des = box.children[0];
+
+        btn.onclick = function() {
+            box.removeChild(des);
+        }
+    </script>
+</body>
+
+</html>

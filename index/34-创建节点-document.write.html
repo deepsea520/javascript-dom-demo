@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document.write</title>
+</head>
+
+<body>
+    <div>呵呵呵</div>
+    <div>哈哈哈</div>
+    <div>嘻嘻嘻</div>
+
+    <button id="btn">加载完，document.write一下</button>
+
+    <script>
+        var btn = document.getElementById('btn');
+        // 创建一个节点
+        document.write("<h2>嘿嘿嘿</h2>")
+
+        // 页面加载完成后，再点击按钮触发document.write的时候，页面内容就会被覆盖
+        btn.onclick = function() {
+            document.write("<h2>叽叽叽</h2>")
+        }
+    </script>
+
+
+</body>
+
+</html>

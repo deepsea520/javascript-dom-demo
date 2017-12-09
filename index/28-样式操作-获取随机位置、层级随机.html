@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机位置+层级</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 1000px;
+            height: 600px;
+            border: 2px solid #1DCD9F;
+            box-shadow: 2px 2px 1px #1DCD9F;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        #box div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        var divs = box.children;
+
+        var colors = ["#FFCE00", "#E73E51", "#EED690", "#FFECDA", "#D4A5A5", "#E3F3F7", "#CBF078", "#ECEBFF", "#C7E78B", "#D6E4F0", "#8FECC8"];
+
+        var zIndex = 0;
+        // 随机颜色
+        for (var i = 0; i < divs.length; i++) {
+            // 随机颜色
+            var randomColor = colors[parseInt(Math.random() * colors.length)];
+            divs[i].style.backgroundColor = randomColor;
+            // 随机位置
+            // h: 0-400  w: 0-800 
+            var x = parseInt(Math.random() * 801);
+            divs[i].style.left = x + "px";
+            var y = parseInt(Math.random() * 401);
+            divs[i].style.top = y + "px";
+
+            // 点击某一个盒子 层级增加
+            divs[i].onclick = function() {
+                this.style.zIndex = ++zIndex;
+            }
+        }
+    </script>
+</body>
+
+</html>

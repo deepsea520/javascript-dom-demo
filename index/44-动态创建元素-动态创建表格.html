@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态创建表格</title>
+    <link rel="stylesheet" href="../css/createTable.css">
+    <script src="../js/createTable.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        var json = {
+            "header": ["姓名", "性别", "年龄", "属性", "技能"],
+            "datas": [{
+                "name": "甄姬",
+                "gender": "女",
+                "age": 20,
+                "attribute": "法师",
+                "skill": "洛神降临"
+            }, {
+                "name": "小乔",
+                "gender": "女",
+                "age": 16,
+                "attribute": "法师",
+                "skill": "星华缭乱"
+            }, {
+                "name": "不知火舞",
+                "gender": "女",
+                "age": 18,
+                "attribute": "刺客",
+                "skill": "必杀·忍蜂"
+            }, {
+                "name": "阿珂",
+                "gender": "女",
+                "age": 18,
+                "attribute": "刺客",
+                "skill": "幻舞"
+            }, {
+                "name": "吕布",
+                "gender": "男",
+                "age": 28,
+                "attribute": "战士",
+                "skill": "魔神降世"
+            }, {
+                "name": "典韦",
+                "gender": "男",
+                "age": 38,
+                "attribute": "战士",
+                "skill": "嗜血"
+            }, {
+                "name": "后羿",
+                "gender": "男",
+                "age": 1888,
+                "attribute": "射手",
+                "skill": "惩戒射击"
+            }, ]
+        };
+        var box = document.getElementById('box');
+        createTable(box, json);
+    </script>
+</body>
+
+</html>

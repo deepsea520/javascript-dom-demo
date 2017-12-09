@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度换肤</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            ../ background-image: url(image/百度换肤/1.jpg);
+            background-size: cover;
+        }
+        
+        #nav {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 200px;
+            text-align: center;
+        }
+        
+        #nav img {
+            width: 200px;
+            margin-top: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <img src="../image/百度换肤/1.jpg" alt="">
+        <img src="../image/百度换肤/2.jpg" alt="">
+        <img src="../image/百度换肤/3.jpg" alt="">
+        <img src="../image/百度换肤/4.jpg" alt="">
+        <img src="../image/百度换肤/5.jpg" alt="">
+    </div>
+
+    <script>
+        var nav = document.getElementById('nav');
+        var imgs = nav.children;
+
+        // 给所有的img注册点击事件
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                // 改变body的背景图片
+                document.body.style.backgroundImage = "url(" + this.src + ")";
+            }
+        }
+    </script>
+</body>
+
+</html>
